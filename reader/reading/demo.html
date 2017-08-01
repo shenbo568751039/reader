@@ -255,7 +255,7 @@
             width:30px;
             height:30px;
             border-radius:15px;
-            background: #fff;
+            background-color: #fff;
             display:inline-block;
             vertical-align:-14px;
             margin-right:8px;
@@ -271,19 +271,19 @@
             display: inline-block;
         }
         #bk-container1{
-            background: #fdf;
+            background-color: #fdf;
         }
         #bk-container2{
-            background: #ffd;
+            background-color: #ffd;
         }
         #bk-container3{
-            background: #fdd;
+            background-color: #fdd;
         }
         #bk-container4{
-            background: #dfd;
+            background-color: #dfd;
         }
         #bk-container5{
-            background: #000;
+            background-color: #000;
         }
         .artical-action-mid{
             position:fixed;
@@ -451,7 +451,11 @@
             initFontSize = 14;
         }
         RootContainer.css('font-size',initFontSize);
-
+       var bkColor = Util.StorageGetter('background-color');
+        if(!bkColor){
+            bkColor = 'red';
+        }
+        RootContainer.css('background-color',bkColor);
     /*    var bkColor = Util.StorageGetter('bkColor');
         if(!bkColor){
             bkColor = #fff;
@@ -564,11 +568,6 @@
                     Dom.font_button.removeClass('current');
                 }
             });
-            Dom.night_day_switch_button.click(function(){
-                //触发背景切换的事件
-
-            });
-
             $('#large-font').click(function(){
                 if(initFontSize > 20){
                     return ;
@@ -586,26 +585,36 @@
                 RootContainer.css('font-size',initFontSize);
                 Util.StorageSetter('font_size',initFontSize);
             });
-
             $('#bk-container1').click(function(){
+                var bkColor = $("#bk-container1").css("background-color");
+                RootContainer.css('background-color',bkColor);
+                Util.StorageSetter('background-color',bkColor);
 
-             RootContainer.css('background','#fdf');
+                // RootContainer.css('background','#fdf');
             });
             $('#bk-container2').click(function(){
-//                var bkColor = document.getElementById('#bk-container2').background;
-                RootContainer.css('background','#ffd');
+                var bkColor = $("#bk-container2").css("background-color");
+                RootContainer.css('background-color',bkColor);
+                Util.StorageSetter('background-color',bkColor);
+//                RootContainer.css('background-color','#ffd');
             });
             $('#bk-container3').click(function(){
-//                var bkColor = document.getElementById('#bk-container3').background;
-                RootContainer.css('background',' #fdd');
+                var bkColor = $("#bk-container3").css("background-color");
+                RootContainer.css('background-color',bkColor);
+                Util.StorageSetter('background-color',bkColor);
+//                RootContainer.css('background-color',' #fdd');
             });
             $('#bk-container4').click(function(){
-//                var bkColor = document.getElementById('#bk-container4').background;
-                RootContainer.css('background','#dfd');
+                var bkColor = $("#bk-container4").css("background-color");
+                RootContainer.css('background-color',bkColor);
+                Util.StorageSetter('background-color',bkColor);
+//                RootContainer.css('background-color','#dfd');
             });
             $('#bk-container5').click(function(){
-//                var bkColor = document.getElementById('#bk-container5').background;
-                RootContainer.css('background','#000');
+                var bkColor = $("#bk-container5").css("background-color");
+                RootContainer.css('background-color',bkColor);
+                Util.StorageSetter('background-color',bkColor);
+//                RootContainer.css('background-color','#000');
             });
             $('#day_icon').click(function(){
 
@@ -615,7 +624,10 @@
                     $('#day_icon').hide();
                     $('#night_icon').show();
                 }
-                RootContainer.css('background','#ffd');
+                var bkColor = $("#bk-container2").css("background-color");
+                RootContainer.css('background-color',bkColor);
+                Util.StorageSetter('background-color',bkColor);
+//                RootContainer.css('background-color','#ffd');
 
             });
             $('#night_icon').click(function(){
@@ -626,7 +638,10 @@
                     $('#night_icon').hide();
                     $('#day_icon').show();
                 }
-                RootContainer.css('background','#000');
+                var bkColor = $("#bk-container5").css("background-color");
+                RootContainer.css('background-color',bkColor);
+                Util.StorageSetter('background-color',bkColor);
+//                RootContainer.css('background-color','#000');
 
             });
 
